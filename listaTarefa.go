@@ -44,8 +44,8 @@ func (lt *ListaTarefa) Remover(descricao string) bool {
 	var anterior *NoTarefa
 	atual := lt.inicio
 
-	for atual != nil {
-		if atual.tarefa.descricao == descricao && atual == lt.inicio {
+	for !lt.EstaVazia() {
+		if atual.tarefa.descricao == descricao && lt.Tamanho() == 1 {
 			lt.inicio = atual.proximo
 			return true
 		} else if atual.tarefa.descricao == descricao {
