@@ -49,7 +49,8 @@ func main() {
 			lista.Remover(descricao)
 
 		case "4":
-			fmt.Print(lista.Tamanho())
+			fmt.Print("Tamanho da lista: ", lista.Tamanho())
+			fmt.Println()
 		}
 
 		if opcao == "0" {
