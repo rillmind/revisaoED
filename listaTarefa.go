@@ -47,8 +47,10 @@ func (lt *ListaTarefa) Remover(descricao string) bool {
 	for atual != nil {
 		if atual.tarefa.descricao == descricao && atual == lt.inicio {
 			lt.inicio = atual.proximo
+			return true
 		} else if atual.tarefa.descricao == descricao {
 			anterior.proximo = atual.proximo
+			return true
 		}
 		anterior = atual
 		atual = atual.proximo
@@ -56,7 +58,9 @@ func (lt *ListaTarefa) Remover(descricao string) bool {
 	return false
 }
 
-func (lt *ListaTarefa) EstaVazia(descricao string) bool { return true }
+func (lt *ListaTarefa) EstaVazia() bool {
+	return lt.Tamanho() == 0
+}
 
 func (lt *ListaTarefa) Tamanho() int {
 	cont := 0

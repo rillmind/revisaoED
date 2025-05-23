@@ -46,11 +46,13 @@ func main() {
 			fmt.Print("Descrição: ")
 			sc.Scan()
 			descricao := sc.Text()
-			lista.Remover(descricao)
+			fmt.Println("\nRemoveu? ", lista.Remover(descricao))
 
 		case "4":
-			fmt.Print("Tamanho da lista: ", lista.Tamanho())
-			fmt.Println()
+			fmt.Println("Tamanho da lista: ", lista.Tamanho())
+
+		case "5":
+			fmt.Println("Está vazia? ", lista.EstaVazia())
 		}
 
 		if opcao == "0" {
@@ -65,6 +67,7 @@ func menu() {
 	fmt.Println("2) Listar tarefas")
 	fmt.Println("3) Remover tarefa")
 	fmt.Println("4) Tamanho da lista")
+	fmt.Println("5) A lista está vazia?")
 	fmt.Println("0) Sair")
 	fmt.Print("Escolha: ")
 }
