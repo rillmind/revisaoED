@@ -26,22 +26,34 @@ func (lt *ListaTarefa) AdicionarTarefa(tarefa *Tarefa) {
 func (lt *ListaTarefa) Listar() {
 	atual := lt.inicio
 
-	fmt.Println("Tarefas: {")
+	fmt.Print("Tarefas: {")
 	for atual != nil {
-		fmt.Println(
-			"  {\n",
-			" Descrição:", atual.tarefa.descricao, "\n",
-			" Prioridade:", atual.tarefa.prioridade, "\n",
-			" },",
+		fmt.Print(`
+  {
+  Descrição:`, atual.tarefa.descricao, `
+  Prioridade:`, atual.tarefa.prioridade, `
+  },`,
 		)
 
 		atual = atual.proximo
 	}
-	fmt.Println("}")
+	fmt.Println("\n}")
 }
 
 func (lt *ListaTarefa) Remover(descricao string) bool {
-	return true
+	var anterior *NoTarefa
+	atual := lt.inicio
+
+	for atual != nil {
+		if atual.tarefa.descricao == descricao && atual == lt.inicio {
+			lt.inicio = atual.proximo
+		} else if atual.tarefa.descricao == descricao {
+			anterior.proximo = atual.proximo
+		}
+		anterior = atual
+		atual = atual.proximo
+	}
+	return false
 }
 
 func (lt *ListaTarefa) EstaVazia(descricao string) bool { return true }

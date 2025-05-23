@@ -39,6 +39,12 @@ func main() {
 			lista.AdicionarTarefa(tarefa)
 		case "2":
 			lista.Listar()
+		case "3":
+			fmt.Println("Removendo tarefa...")
+			fmt.Print("Descrição: ")
+			sc.Scan()
+			descricao := sc.Text()
+			lista.Remover(descricao)
 		}
 
 		if opcao == "0" {
@@ -51,6 +57,7 @@ func menu() {
 	fmt.Println()
 	fmt.Println("1) Adicionar tarefa")
 	fmt.Println("2) Listar tarefas")
+	fmt.Println("3) Remover tarefas")
 	fmt.Println("0) Sair")
 	fmt.Print("Escolha: ")
 }
