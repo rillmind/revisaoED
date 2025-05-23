@@ -58,4 +58,13 @@ func (lt *ListaTarefa) Remover(descricao string) bool {
 
 func (lt *ListaTarefa) EstaVazia(descricao string) bool { return true }
 
-func (lt *ListaTarefa) Tamanho() int { return 1 }
+func (lt *ListaTarefa) Tamanho() int {
+	cont := 0
+	atual := lt.inicio
+
+	for atual != nil {
+		cont += 1
+		atual = atual.proximo
+	}
+	return cont
+}
